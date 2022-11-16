@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Square from './Square';
 
-const Board = () => {
-  const [boardState,setBoardState] = useState(Array(9).fill(null));
-  const [isSameUser,setIsSameUser] = useState(true);
-  // console.log(boardState);
-  const handleSquareClick = pos=>{
-    if(boardState[pos]) return;
-    setBoardState(prev=>{
-      return prev.map((value,index)=>{
-        if(index==pos) return isSameUser ? 'X' : 'O';
-        return value;
-      })
-    })
-    setIsSameUser(prev=> !prev)
-  }
+const Board = ({boardState,handleSquareClick}) => {
+  
   const renderSquare = pos => {
     return (
       <Square value={boardState[pos]} onClick = {()=>{handleSquareClick(pos)}} />
