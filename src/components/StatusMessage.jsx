@@ -6,10 +6,7 @@ import React from 'react'
 
 
 function StatusMessage({winner,current}) {
-  console.log('board' , current.board)
-  console.log('winner',winner)
   const noMovesLeft =  current.board.every(el=> el !== null);
-  console.log('nomoves ',noMovesLeft)
   return (
     <h2>
       {winner && !noMovesLeft && `Winner is ${winner}`} 
